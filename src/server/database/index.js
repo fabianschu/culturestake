@@ -7,6 +7,7 @@ export default new Sequelize(config.url, {
   dialect: config.dialect,
   dialectOptions: {
     ssl: true,
+    rejectUnauthorized: false,
   },
   logging: (msg) => {
     logger.debug(msg);
