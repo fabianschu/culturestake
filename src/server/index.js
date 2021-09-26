@@ -45,8 +45,9 @@ db.authenticate()
   .then(() => {
     logger.info('Database connection has been established successfully');
   })
-  .catch(() => {
+  .catch((e) => {
     logger.error('Unable to connect to database');
+    logger.error(e);
     process.exit(1);
   });
 
