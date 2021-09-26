@@ -6,8 +6,9 @@ import logger from '~/server/helpers/logger';
 export default new Sequelize(config.url, {
   dialect: config.dialect,
   dialectOptions: {
-    ssl: true,
-    rejectUnauthorized: false,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   },
   logging: (msg) => {
     logger.debug(msg);
