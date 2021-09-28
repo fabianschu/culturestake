@@ -274,6 +274,9 @@ const VoteSession = ({
     setSnuggleness(currentVotePower / totalVotePower);
 
     // Set most voted artwork when in festival question step
+    console.log("in onCreditChange")
+    console.log("stepName: ", stepName)
+
     if (stepName === STEP_FESTIVAL) {
       const highestVoteTokens = Math.max(...Object.values(creditsNew));
       const winnerAnswerId =
@@ -285,14 +288,15 @@ const VoteSession = ({
               10,
             )
           : null;
-
+      console.log("winnerAnswerId: ", winnerAnswerId);
       if (!winnerAnswerId) {
         setWinnerArtworkId(null);
       } else {
         const { artworkId } = festivalQuestionData.answers.find(
           ({ id }) => id === winnerAnswerId,
         );
-
+        console.log("festivalQuestionData: ", festivalQuestionData)
+        console.log("artworkId: ", artworkId)
         setWinnerArtworkId(artworkId);
       }
     }
@@ -367,6 +371,8 @@ const VoteSession = ({
     // Go vote!
     await dispatch(vote(voteData, requestId));
   };
+
+  console.log("final winnerArtworkId before render: ", winnerArtworkId)
 
   return (
     <Fragment>
@@ -504,7 +510,7 @@ const VoteSession = ({
                     <PaperTicket>
                       <BoxFramed>
                         <HeadingPrimaryStyle>
-                          {artworkQuestionData.title}
+                          {artworkQuestionData ? artworkQuestionData.title : "no title available"}
                         </HeadingPrimaryStyle>
                       </BoxFramed>
                     </PaperTicket>
@@ -523,6 +529,8 @@ const VoteSession = ({
                     )}
 
                     {properties.map((property) => {
+                      console.log("src/client/components/VoteSession.js")
+                      console.log(property.answerId)
                       return (
                         <VoteSessionProperty
                           answerId={property.answerId}
