@@ -194,7 +194,7 @@ const VoteSession = ({
     }
 
     // Get data from artwork question (when festival question winner is set)
-    if (artworkQuestionData.chainId && currentStep === STEP_ARTWORK) {
+    if (artworkQuestionData && artworkQuestionData.chainId && currentStep === STEP_ARTWORK) {
       getMaxVoteTokens(STEP_ARTWORK, artworkQuestionData);
     }
   }, [festivalQuestionData, artworkQuestionData, currentStep]);
