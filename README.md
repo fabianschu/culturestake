@@ -41,7 +41,7 @@ npm run client:watch
 npm run client:build
 
 // Start local server and watch changes
-npm run server:watch
+npm run server:watch 
 
 // Build for production
 npm run build

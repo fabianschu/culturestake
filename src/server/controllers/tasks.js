@@ -51,8 +51,11 @@ async function create(req, res) {
         'EX',
         60 * 30, // expiring in 30 minutes
       );
-      voteEmail(data.email, { ...data, random });
-      break;
+      return respondWithSuccess(
+        res,
+        { token: random },
+        httpStatus.CREATED,
+      );
     }
   }
 
