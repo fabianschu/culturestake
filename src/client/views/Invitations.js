@@ -58,10 +58,10 @@ const Invitations = () => {
         }),
       );
     },
-    onSuccess: () => {
+    onSuccess: ({token}) => {
       dispatch(
         notify({
-          text: translate('Invitations.notificationSuccess'),
+          text: token,
         }),
       );
     },

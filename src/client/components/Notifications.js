@@ -70,7 +70,6 @@ const NotificationsItem = ({ id, lifetime, text, type }) => {
   return (
     <NotificationsItemStyle
       color={NOTIFICATIONS_COLORS[type]}
-      onClick={onRemove}
     >
       <NotificationItemTextStyle>{text}</NotificationItemTextStyle>
     </NotificationsItemStyle>

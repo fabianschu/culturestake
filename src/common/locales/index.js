@@ -236,7 +236,7 @@ const components = {
     bodyYourVotesRecorded:
       'Your votes have been recorded. You ranked the artworks as follows:',
     artworkSubheader:
-      'You have decided this is the experience you would like to see produced at larger scale in {location}.',
+      'You have decided this is the experience you would like to see produced at larger scale in BERLIN OR ELSEWHERE.',
     artworkSubheaderTwo: 'Let us know why it is your favourite one.',
     buttonNextStep: 'Next',
     buttonPreviousStep: 'Return',
