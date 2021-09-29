@@ -16,7 +16,7 @@
     "lint:css": "stylelint './src/client/**/*.js'",
     "lint:js": "eslint --ignore-path .gitignore ./",
     "server:build": "babel ./src/server --out-dir ./build/server && babel ./src/common --out-dir ./build/common && cp ./src/server/index.pug ./build/server/index.pug",
-    "server:start": "cross-env NODE_ENV=production node ./build/server/index.js",
+    "server:start": "node ./build/server/index.js",
     "server:watch": "nodemon --watch ./src/server --exec cross-env NODE_ENV=development babel-node ./src/server/index.js --source-maps inline",
     "start": "npm run server:start",
     "test": "cross-env NODE_ENV=test WORKER=true jest --runInBand --detectOpenHandles",
