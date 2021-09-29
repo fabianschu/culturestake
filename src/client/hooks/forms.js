@@ -76,13 +76,9 @@ export const useRequestForm = ({
   // Check for state of the current request
   const request = useRequest(requestId, {
     onError,
-    onSuccess: ({token}) => {
-      console.log("src/client/hooks/forms.js")
-      console.log("res: ", token)
-      console.log("formApi: ", formApi)
-
+    onSuccess: (res) => {
       if (onSuccess) {
-        onSuccess({...formApi.values, token});
+        onSuccess({...formApi.values, token: res ? res.token : null});
       }
     },
   });
