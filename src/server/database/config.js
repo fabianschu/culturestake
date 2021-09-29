@@ -13,11 +13,11 @@ if (process.env.NODE_ENV === 'test') {
 module.exports = {
   url,
   dialect: process.env.DATABASE_DIALECT || 'postgres',
-  dialectOptions: {
+  dialectOptions: process.env.NODE_ENV === "production" ? {
     ssl: {
       rejectUnauthorized: false,
     },
-  },
+  } : {},
   timezone: '+00:00',
   seederStorage: 'sequelize',
 };

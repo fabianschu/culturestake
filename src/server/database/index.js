@@ -5,11 +5,11 @@ import logger from '~/server/helpers/logger';
 
 export default new Sequelize(config.url, {
   dialect: config.dialect,
-  dialectOptions: {
+  dialectOptions: process.env.NODE_ENV === "production" ? {
     ssl: {
       rejectUnauthorized: false,
     },
-  },
+  } : {},
   logging: (msg) => {
     logger.debug(msg);
   },
